@@ -1,14 +1,22 @@
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
-import Home from "./Home";
+import Home from "./Sections/Home";
 import { useState } from "react";
-import About from "./About";
+import About from "./Sections/About";
+import Experience from "./Sections/Experience";
+import Contact from "./Sections/Contact";
+import { useInView } from "react-intersection-observer";
 
 export default function Pages() {
 
     const [isOpen, setIsOpen] = useState(false);
     const handleClick = () => setIsOpen(!isOpen);
-    
+
+    const { ref, inView } = useInView({
+        triggerOnce: false, // Trigger animation only once
+        threshold: 0.3, // When 30% of the element is in the viewport
+    });
+
     return (
         <div className="relative scroll-smooth">
             {/* Navbar */}
@@ -41,10 +49,12 @@ export default function Pages() {
             <motion.section
                 id="home"
                 className="h-screen"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 100 }} // Start position
+                animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 100 }} // Final position
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                ref={ref}
             >
                 <Home />
             </motion.section>
@@ -52,7 +62,9 @@ export default function Pages() {
             <motion.section
                 id="about"
                 className="h-screen"
-                initial={{ opacity: 0, y: 50 }}
+                ref={ref}
+                initial={{ opacity: 0, y: 100 }} // Start position
+                animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 100 }} // Final position
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
@@ -68,7 +80,7 @@ export default function Pages() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
             >
-                <h1 className="text-5xl text-center text-white py-24">Experience Section</h1>
+                <Experience />
             </motion.section>
 
             <motion.section
@@ -79,8 +91,13 @@ export default function Pages() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
             >
-                <h1 className="text-5xl text-center text-white py-24">Contact Section</h1>
+                <Contact />
             </motion.section>
+            <div className="w-full h-px bg-gray-600 px-20"></div>
+            <div className="bg-gray-900 text-gray-600 py-10 w-full flex flex-col items-center justify-center">
+                <p className="">© 2025 All rights reserved. Designed using React.js & Tailwind CSS.</p>
+                <p>By Samira Kamilova</p>
+            </div>
         </div >
     );
 }

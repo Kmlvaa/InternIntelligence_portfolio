@@ -9,9 +9,11 @@
     "@testing-library/user-event": "^13.5.0",
     "ajv": "^8.17.1",
     "ajv-keywords": "^5.1.0",
+    "aos": "^2.3.4",
     "framer-motion": "^12.6.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-intersection-observer": "^9.16.0",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.9.3",
     "web-vitals": "^2.1.4"
