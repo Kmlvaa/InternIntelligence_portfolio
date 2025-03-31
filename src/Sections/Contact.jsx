@@ -2,9 +2,13 @@ import React from 'react'
 
 export default function Contact() {
     return (
-        <div className='bg-gray-900 w-full h-screen px-32 flex flex-row justify-between'>
+        <div className='bg-gray-900 w-full h-auto px-32 flex flex-row justify-between py-28'>
             <div className='flex flex-col gap-5 items-start w-1/2'>
-                <h1 className='text-5xl font-bold text-[#eb3257]'>Get in Touch</h1>
+                {/* <h1 className='text-5xl font-bold text-[#eb3257]'>Get in Touch</h1> */}
+                <h1 className='text-5xl font-semibold relative text-white'>
+                    Get in Touch
+                    <span className="absolute left-5 bottom-0 w-full h-[4px] bg-[#eb3257] rounded-full"></span>
+                </h1>
                 <p className='text-gray-500 text-lg'>Feel free to reach out! Whether you have a question or just want to drop a message, I’ll do my best to get back to you.</p>
 
                 <div className='flex flex-row gap-5 items-center'>
@@ -42,17 +46,17 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-            <div className='w-1/2 border border-white bg-gay-800 h-2/3 rounded-md'>
-                <form className='p-5 leading-10'>
+            <div className='w-1/2 border border-white bg-gay-800 h-3/4 rounded-md'>
+                <form className='p-4 leading-10 h-full'>
                     <label className='text-white'>Name</label><br />
-                    <input type='text' name='name' placeholder='Enter your name' className='rounded-md px-3 py-2 w-full' />
+                    <input type='text' name='name' placeholder='Enter your name' className='rounded-md px-3 py-1 w-full' />
                     <label className='text-white'>Email Adress</label><br />
-                    <input type='text' name='email' placeholder='Enter your email' className='rounded-md px-3 py-2 w-full' />
+                    <input type='text' name='email' placeholder='Enter your email' className='rounded-md px-3 py-1 w-full' />
                     <label className='text-white'>Your Message</label><br />
-                    <textarea placeholder='Write here...' className='rounded-md px-3 py-2 w-full h-32' />
+                    <textarea placeholder='Write here...' className='rounded-md px-3 py-1 w-full h-28' />
 
                     <div className='flex items-end w-full'>
-                        <button className='border border-[#eb3257] text-[#eb3257] py-2 px-3 rounded-md flex flex-row items-center gap-2 bottom-0 hover:bg-[#eb3257] hover:text-white font-semibold'>
+                        <button className='border border-[#eb3257] text-[#eb3257] py-1 px-3 rounded-md flex flex-row items-center gap-2 bottom-0 hover:bg-[#eb3257] hover:text-white font-semibold'>
                             Send
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />

@@ -1,12 +1,14 @@
 import Cursor from './_components/Cursor';
+import { ScrollToTop } from './_components/ScrollToTop';
 import './App.css';
 import Pages from './Pages';
 
 function App() {
   return (
-    <div className="w-screen h-screen overflow-x-hidden">
+    <div className="w-screen overflow-x-hidden">
       <Cursor />
       <Pages />
+      <ScrollToTop />
     </div>
   );
 }
