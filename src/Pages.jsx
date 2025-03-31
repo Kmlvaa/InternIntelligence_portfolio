@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import About from "./Sections/About";
 import Experience from "./Sections/Experience";
 import Contact from "./Sections/Contact";
+import Projects from "./Sections/Projects";
 import { TfiAngleDown } from "react-icons/tfi";
 import { FaGithub } from "react-icons/fa";
 import { ImLinkedin } from "react-icons/im";
@@ -10,6 +11,7 @@ import { BiLogoGmail } from "react-icons/bi";
 
 export default function Pages() {
 
+    const [Active, setActive] = useState('home');
     const [isOpen, setIsOpen] = useState(false);
     const handleClick = () => setIsOpen(!isOpen);
     const menuRef = useRef(null);
@@ -33,17 +35,47 @@ export default function Pages() {
     const contact = useRef(null);
     const projects = useRef(null);
 
-    const scrollToSection = (elementRef) => {
+    const scrollToSection = (elementRef, id) => {
         if (elementRef.current) {
             elementRef.current.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
-                top: elementRef.current.offsetTop + 120
             });
-            console.log(elementRef.current.offsetTop + 120, window.scrollY);
+
+            setActive(id);
         }
     };
 
+    const links = [
+        { id: 'home', ref: home, label: 'Home' },
+        { id: 'about', ref: about, label: 'About' },
+        { id: 'experience', ref: experience, label: 'Experience' },
+        { id: 'projects', ref: projects, label: 'Projects' },
+        { id: 'contact', ref: contact, label: 'Contact' },
+    ]
+
+    useEffect(() => {
+        const observerOptions = {
+            root: null, 
+            threshold: 0.6, 
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActive(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        links.forEach(({ ref }) => {
+            if (ref.current) observer.observe(ref.current);
+        });
+
+        return () => observer.disconnect(); 
+    }, []);
 
     return (
         <div className="relative scroll-smooth">
@@ -52,21 +84,13 @@ export default function Pages() {
                 <div className="text-white text-xl z-[10000]">ᛕꪖꪑ꠸ꪶꪮꪜꪖ</div>
                 <div className="p-[1px] rounded-full bg-gradient-to-r from-pink-500 via-yellow-400 via-red-500 via-orange-500 to-purple-600">
                     <ul className="rounded-full bg-gray-800 text-white px-6 py-3 flex gap-6 justify-center items-center list-none">
-                        <li onClick={() => { scrollToSection(home) }} className="cursor-pointer hover:text-[#eb3257]">
-                            Home
-                        </li>
-                        <li onClick={() => { scrollToSection(about) }} className="cursor-pointer hover:text-[#eb3257]">
-                            About
-                        </li>
-                        <li onClick={() => { scrollToSection(experience) }} className="cursor-pointer hover:text-[#eb3257]">
-                            Experience
-                        </li>
-                        <li onClick={() => { scrollToSection(projects) }} className="cursor-pointer hover:text-[#eb3257]">
-                            Projects
-                        </li>
-                        <li onClick={() => { scrollToSection(contact) }} className="cursor-pointer hover:text-[#eb3257]">
-                            Contact
-                        </li>
+                        {links.map(({ id, ref, label }) => {
+                            return (
+                                <li key={id} onClick={() => { scrollToSection(ref, id) }} className={`cursor-pointer hover:text-[#eb788f] ${Active == id ? 'text-[#eb3257]' : ''}`}>
+                                    {label}
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
                 <div className="relative" ref={menuRef}>
@@ -75,10 +99,9 @@ export default function Pages() {
                         <span className={`block h-0.5 bg-white rounded transition-all duration-300 group-hover:-rotate-12 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
                     </div>
                     {isOpen &&
-                        <div className={`absolute top-6 w-auto h-auto border border-white bg-gray-900 rounded-md flex flex-col gap-2 p-5 ${
-                            isOpen ? 'left-0' : 'left-[-100%] transition-all duration-500 ease-in-out'
-                          }`}
-                          >
+                        <div className={`absolute top-6 w-auto h-auto border border-white bg-gray-900 rounded-md flex flex-col gap-2 p-5 ${isOpen ? 'left-0' : 'left-[-100%] transition-all duration-500 ease-in-out'
+                            }`}
+                        >
                             <div className="flex flex-row gap-2 items-center">
                                 <p className="text-white font-semibold">Github</p>
                                 <a href="https://github.com/Kmlvaa" target="_blank" rel="noopener noreferrer"><FaGithub size={40} className="bg-white hover:bg-purple-200 rounded-full p-2 cursor-pointer" /></a>
@@ -108,6 +131,10 @@ export default function Pages() {
 
             <div id="experience" ref={experience}>
                 <Experience />
+            </div>
+
+            <div id="projects" ref={projects}>
+                <Projects />
             </div>
 
             <div id="contact" ref={contact}>
