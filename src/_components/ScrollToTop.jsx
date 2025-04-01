@@ -32,7 +32,7 @@ export const ScrollToTop = () => {
 
     return (
         <>
-            {showScrollBtn && <div className='rounded-full bg-[#eb3257] border-0 p-3 fixed bottom-8 left-8 cursor-pointer'>
+            {showScrollBtn && <div className='rounded-full bg-customGreen border-0 p-3 fixed bottom-8 left-8 max-sm:bottom-3 max-sm:left-3 cursor-pointer hover:scale-110 transi duration-300'>
                 <FaAnglesUp size={30} color='white' onClick={scrollTop} />
             </div>}
         </>
