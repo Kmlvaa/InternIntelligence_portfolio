@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Contact() {
     return (
-        <div className=' w-full h-auto px-32 flex flex-row justify-between py-28 max-lg:flex-col max-lg:gap-14 max-lg:px-14'>
+        <div className=' w-full h-auto px-20 flex flex-row justify-between py-28 max-lg:flex-col max-lg:gap-14 max-lg:px-10'>
             <div className='flex flex-col gap-5 items-start w-1/2 max-lg:w-full'>
-                <h1 className='text-5xl font-bold text-customGreen'>Get in Touch</h1>
+                <h1 className='text-5xl font-bold text-customGreen max-sm:text-4xl'>Get in Touch</h1>
                 {/* <h1 className='text-5xl font-semibold relative text-white'>
                     Get in Touch
                     <span className="absolute left-5 bottom-0 w-full h-[4px] bg-mainPinkColor rounded-full"></span>

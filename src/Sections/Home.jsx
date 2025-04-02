@@ -6,9 +6,9 @@ export default function Home() {
         <div className='w-full h-screen flex flex-col items-center justify-center'>
             <div className='flex flex-col items-center justify-center gap-8'>
                 <div className='flex flex-col items-center '>
-                    <h1 className='text-5xl font-bold text-white max-sm:text-3xl'>Hello, I'm</h1>
-                    <p className='text-7xl font-bold text-white max-sm:text-5xl'>Samira Kamilova</p>
-                    <p className='text-2xl text-gray-500 max-sm:text-lg'>A student who is interested in <span className='text-customGreen'>web development</span></p>
+                    <h1 className='text-5xl font-bold text-white max-sm:text-2xl max-[400px]:text-lg'>Hello, I'm</h1>
+                    <p className='text-7xl font-bold text-white max-sm:text-4xl'>Samira Kamilova</p>
+                    <p className='text-2xl text-gray-500 max-sm:text-sm'>A student who is interested in <span className='text-customGreen'>web development</span></p>
                 </div>
                 <button
                     className='bg-gradient-to-r from-customGreen to-customPurple rounded-full px-4 py-2 font-semibold text-white flex flex-row gap-2 transition-all duration-200 hover:brightness-75 border-0 '>

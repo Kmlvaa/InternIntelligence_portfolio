@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Experience() {
     return (
-        <div className='w-full h-auto text-white px-32 py-28 max-lg:px-14'>
-            <h1 className='text-5xl font-bold text-customGreen mb-20 w-1/2 m-auto max-lg:w-full'>Experience & Education</h1>
+        <div className='w-full h-auto text-white px-20 py-28 max-lg:px-10'>
+            <h1 className='text-5xl font-bold text-customGreen mb-20 w-1/2 m-auto max-xl:w-4/5 max-lg:w-full max-sm:text-4xl'>Experience & Education</h1>
             {/* <h1 className='text-5xl font-semibold w-1/2 m-auto mb-20 relative'>
                 Experience & Education
                 <span className="absolute left-5 bottom-0 w-full h-[4px] bg-mainPinkColor rounded-full"></span>
@@ -13,8 +13,8 @@ export default function Experience() {
                     {exp.map((e) => {
                         return (
                             <div>
-                                <p className='text-gray-500 text-xl max-md:text-lg max-sm:text-md'>{e.name}</p>
-                                <p className='text-3xl font-semibold max-md:text-2xl max-sm:text-lg'>{e.prof}</p>
+                                <p className='text-gray-500 text-xl max-md:text-lg max-sm:text-sm'>{e.name}</p>
+                                <p className='text-3xl font-semibold max-md:text-2xl max-xl:text-xl max-sm:text-lg'>{e.prof}</p>
                                 <p className='text-gray-500 text-xl max-md:text-lg max-sm:text-sm'>{e.date}</p>
                             </div>
                         );
@@ -24,8 +24,8 @@ export default function Experience() {
                     {edu.map((e) => {
                         return (
                             <div>
-                                <p className='text-gray-500 text-xl max-md:text-lg max-sm:text-md'>{e.prof}</p>
-                                <p className='text-3xl font-semibold max-md:text-2xl max-sm:text-lg'>{e.place}</p>
+                                <p className='text-gray-500 text-xl max-md:text-lg max-sm:text-sm'>{e.prof}</p>
+                                <p className='text-3xl font-semibold max-md:text-2xl max-xl:text-xl max-sm:text-lg'>{e.place}</p>
                                 <p className='text-gray-500 text-xl max-md:text-lg max-sm:text-sm'>{e.date}</p>
                             </div>
                         );

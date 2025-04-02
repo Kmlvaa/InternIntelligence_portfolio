@@ -3,8 +3,8 @@ import { FaLink } from "react-icons/fa";
 
 export default function Projects() {
     return (
-        <div className=' w-full h-auto text-white px-32 py-28 max-lg:px-14'>
-            <h1 className='text-5xl font-bold text-customGreen mb-20 w-40 m-auto'>Projects</h1>
+        <div className=' w-full h-auto text-white px-20 py-28 max-lg:px-10'>
+            <h1 className='text-5xl font-bold text-customGreen mb-20 w-40 m-auto max-sm:w-32 max-sm:text-4xl'>Projects</h1>
             {/* <h1 className='text-5xl font-semibold w-60 m-auto mb-20 relative'>
                 Projects
                 <span className="absolute left-5 bottom-0 w-full h-[4px] bg-mainPinkColor rounded-full"></span>
@@ -13,13 +13,13 @@ export default function Projects() {
                 {projects?.slice().reverse().map((project) => {
                     return (
                         <div id={project.id} className="flex odd:justify-start group even:justify-end even:text-end">
-                            <div className='flex flex-row items-center w-3/4 gap-5 max-sm:gap-2 max-sm:items-start max-lg:w-11/12 max-sm:flex-col'>
+                            <div className='flex flex-row items-center w-3/4 gap-5 max-sm:gap-2 max-sm:items-start max-lg:w-11/12 max-sm:w-full max-sm:flex-col'>
                                 <div className='rounded-xl w-1/3 max-sm:w-full h-48 hidden group-odd:block hover:scale-105 transition-transform duration-300 hover:shadow-[0px_8px_8px_-8px_#e8e8e8]'>
                                     <img src={project.image} alt={project.name} className='cover w-full h-full rounded-xl' />
                                 </div>
                                 <div className='w-2/3 max-sm:w-full relative max-sm:group-even:hidden'>
-                                    <h1 className='text-white font-semibold text-3xl'>{project.name}</h1>
-                                    <p className='text-gray-600'>{project.date}</p>
+                                    <h1 className='text-white font-semibold text-3xl max-sm:text-xl'>{project.name}</h1>
+                                    <p className='text-gray-600 max-sm:text-xs'>{project.date}</p>
                                     <p className='text-gray-600 mt-5 max-sm:mt-3 max-sm:line-clamp-2'>{project.description}</p>
                                     <a href={project.github} target='_blank' rel="noopener noreferrer"
                                         className='text-white cursor-pointer hover:text-gray-600 w-6 group-even:absolute right-0 mt-1'><FaLink size={16} /></a>
@@ -28,8 +28,8 @@ export default function Projects() {
                                     <img src={project.image} alt={project.name} className='cover w-full h-full rounded-xl' />
                                 </div>
                                 <div className='relative hidden max-sm:group-even:block '>
-                                    <h1 className='text-white font-semibold text-3xl'>{project.name}</h1>
-                                    <p className='text-gray-600'>{project.date}</p>
+                                    <h1 className='text-white font-semibold text-3xl max-sm:text-xl'>{project.name}</h1>
+                                    <p className='text-gray-600 max-sm:text-xs'>{project.date}</p>
                                     <p className='text-gray-600 mt-5 max-sm:mt-3 max-sm:line-clamp-2'>{project.description}</p>
                                     <a href={project.github} target='_blank' rel="noopener noreferrer"
                                         className='text-white cursor-pointer hover:text-gray-600 w-6 group-even:absolute right-0 mt-1'><FaLink size={16} /></a>
