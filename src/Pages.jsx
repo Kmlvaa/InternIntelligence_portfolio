@@ -80,7 +80,7 @@ export default function Pages() {
         });
 
         return () => observer.disconnect();
-    }, []);
+    }, [links]);
 
     return (
         <div className="relative scroll-smooth bg-black">
@@ -91,7 +91,7 @@ export default function Pages() {
                     <ul className="rounded-full bg-black text-white px-6 py-3 flex gap-6 justify-center items-center list-none">
                         {links.map(({ id, ref, label }) => {
                             return (
-                                <li key={id} onClick={() => { scrollToSection(ref, id) }} className={`cursor-pointer hover:text-violet-300 ${Active == id ? 'text-customGreen' : ''}`}>
+                                <li key={id} onClick={() => { scrollToSection(ref, id) }} className={`cursor-pointer hover:text-violet-300 ${Active === id ? 'text-customGreen' : ''}`}>
                                     {label}
                                 </li>
                             );
@@ -117,7 +117,7 @@ export default function Pages() {
                             </div>
                             <div className="flex flex-row gap-2 items-center">
                                 <p className="text-white font-semibold">Mail</p>
-                                <a href=""><BiLogoGmail size={40} className="bg-white hover:bg-green-200 rounded-full p-2 cursor-pointer" /></a>
+                                <a href="/"><BiLogoGmail size={40} className="bg-white hover:bg-green-200 rounded-full p-2 cursor-pointer" /></a>
                             </div>
                         </div>}
                 </div>

@@ -6,7 +6,6 @@ const Cursor = () => {
         x: 0,
         y: 0
     });
-    const [cursorVariant, setCursorVariant] = useState("default");
 
     useEffect(() => {
         const mouseMove = e => {
@@ -37,9 +36,6 @@ const Cursor = () => {
             mixBlendMode: 'difference'
         },
     }
-
-    // const mouseEnter = () => setCursorVariant("text");
-    // const mouseLeave = () => setCursorVariant("default");
 
     const [bubbles, setBubbles] = useState([]);
 
@@ -77,7 +73,6 @@ const Cursor = () => {
             <motion.div
                 className="bg-white rounded-full left-0 top-0 fixed pointer-events-none"
                 variants={variants}
-                animate={cursorVariant}
                 transition={{
                     type: "spring",
                     stiffness: 300,

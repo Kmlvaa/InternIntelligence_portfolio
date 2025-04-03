@@ -55,7 +55,7 @@ export default function Projects() {
             <h1 data-aos='zoom-in-down' className='text-5xl font-bold text-customGreen mb-20 w-40 m-auto max-sm:w-32 max-sm:text-4xl'>Projects</h1>
             <div className='flex flex-col gap-10 w-full max-lg:gap-14'>
                 {projects?.slice().reverse().map((project) => (
-                    project.id % 2 == 0 ? (
+                    project.id % 2 === 0 ? (
                         <div data-aos='fade-up-right' key={project.id} className="flex justify-end text-end">
                             <div className='flex flex-row items-center w-3/4 gap-5 max-sm:gap-2 max-sm:items-start max-lg:w-11/12 max-sm:w-full max-sm:flex-col'>
                                 <div data-aos='zoom-in-left' className='hidden max-sm:block rounded-xl w-1/3 max-sm:w-full h-48 hover:scale-105 transition-transform duration-300 hover:shadow-[0px_8px_8px_-8px_#e8e8e8]'>
