@@ -1,11 +1,62 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import emailjs from 'emailjs-com';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
     useEffect(() => {
         AOS.init({ duration: 800, once: false });
     }, []);
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm('service_ej4bql1', 'template_vd9bm2l', e.target, '-8i1xIXUF-wNgVIx7')
+            .then(
+                () => {
+                    toast.success("🚀 Message sent successfully!", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        closeOnClick: true,
+                        draggable: true,
+                        style: {
+                            background: "#ffffff", 
+                            color: "#3CCF91", 
+                            fontSize: "16px",
+                            fontWeight: "bold",
+                            borderRadius: "10px",
+                        },
+                    });
+                    setFormData({
+                        name: '',
+                        email: '',
+                        message: '',
+                    });
+                },
+                (error) => {
+                    console.log(error.text);
+                    toast.success("Oops! Something went wrong. 😞");
+                }
+            );
+    };
+
     return (
         <div className=' w-full h-auto px-20 flex flex-row justify-between py-28 max-lg:flex-col max-lg:gap-14 max-lg:px-10'>
             <div className='flex flex-col gap-5 items-start w-1/2 max-lg:w-full'>
@@ -23,17 +74,18 @@ export default function Contact() {
                     </div>
                 ))}
             </div>
+            <ToastContainer />
             <div data-aos='fade-up-left' className='w-1/2 border border-white bg-gay-800 h-3/4 rounded-md max-lg:w-full'>
-                <form className='p-4 leading-10 h-full'>
+                <form className='p-4 leading-10 h-full' onSubmit={handleSubmit}>
                     <label className='text-white'>Name</label><br />
-                    <input type='text' name='name' placeholder='Enter your name' className='rounded-md px-3 py-1 w-full' />
+                    <input type='text' name='name' value={formData.name} onChange={handleInputChange} required placeholder='Enter your name' className='rounded-md px-3 py-1 w-full' />
                     <label className='text-white'>Email Adress</label><br />
-                    <input type='text' name='email' placeholder='Enter your email' className='rounded-md px-3 py-1 w-full' />
+                    <input type='email' name='email' value={formData.email} onChange={handleInputChange} required placeholder='Enter your email' className='rounded-md px-3 py-1 w-full' />
                     <label className='text-white'>Your Message</label><br />
-                    <textarea placeholder='Write here...' className='rounded-md px-3 py-1 w-full h-28' />
+                    <textarea placeholder='Write here...' name='message' value={formData.message} onChange={handleInputChange} className='rounded-md px-3 py-1 w-full h-28' />
 
                     <div className='flex items-end w-full'>
-                        <button className='border border-customGreen text-customGreen py-1 px-3 rounded-md flex flex-row items-center gap-2 bottom-0 hover:bg-customGreen hover:text-white font-semibold'>
+                        <button type='submit' className='border border-customGreen text-customGreen py-1 px-3 rounded-md flex flex-row items-center gap-2 bottom-0 hover:bg-customGreen hover:text-white font-semibold'>
                             Send
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
