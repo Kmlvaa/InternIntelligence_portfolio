@@ -80,7 +80,7 @@ export default function Pages() {
         });
 
         return () => observer.disconnect();
-    }, [links]);
+    }, []);
 
     return (
         <div className="relative scroll-smooth bg-black">
@@ -117,7 +117,7 @@ export default function Pages() {
                             </div>
                             <div className="flex flex-row gap-2 items-center">
                                 <p className="text-white font-semibold">Mail</p>
-                                <a href="/"><BiLogoGmail size={40} className="bg-white hover:bg-green-200 rounded-full p-2 cursor-pointer" /></a>
+                                <a href="mailto:kmlvasmra@gmail.com"><BiLogoGmail size={40} className="bg-white hover:bg-green-200 rounded-full p-2 cursor-pointer" /></a>
                             </div>
                         </div>}
                 </div>
