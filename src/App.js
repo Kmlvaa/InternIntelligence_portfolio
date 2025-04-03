@@ -5,7 +5,7 @@ import Pages from './Pages';
 
 function App() {
   return (
-    <div className="w-screen overflow-x-hidden">
+    <div className="overflow-x-hidden overflow-y-auto scrollbar">
       <Cursor />
       <Pages />
       <ScrollToTop />
