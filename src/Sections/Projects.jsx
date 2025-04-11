@@ -43,6 +43,14 @@ const projects = [
         date: "Mart 2025",
         image: 'assets/portfolio.png',
         github: 'https://github.com/Kmlvaa/InternIntelligence_portfolio.git'
+    },
+    {
+        id: 6,
+        name: "MovieWatch",
+        description: "Welcome to MovieWatch, your premier destination for discovering and enjoying movies, TV shows, and anime from all around the world. Whether you’re an avid movie lover, a TV series binge-watcher, or an anime enthusiast, MovieWatch provides an extensive, user-friendly platform that brings all your entertainment needs to your fingertips.",
+        date: "Mart 2025",
+        image: 'assets/movieWatch.png',
+        github: 'https://github.com/Kmlvaa/InternIntelligence_MovieWatch.git'
     }
 ]
 
