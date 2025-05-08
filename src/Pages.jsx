@@ -109,15 +109,15 @@ export default function Pages() {
                         >
                             <div className="flex flex-row gap-2 items-center">
                                 <p className="text-white font-semibold">Github</p>
-                                <a href="https://github.com/Kmlvaa" target="_blank" rel="noopener noreferrer"><FaGithub size={40} className="bg-white hover:bg-violet-200 rounded-full p-2 cursor-pointer" /></a>
+                                <a href="https://github.com/Kmlvaa" target="_blank" rel="noopener noreferrer" aria-label="Github link"><FaGithub size={40} className="bg-white hover:bg-violet-200 rounded-full p-2 cursor-pointer" /></a>
                             </div>
                             <div className="flex flex-row gap-2 items-center">
                                 <p className="text-white font-semibold">Linkedin</p>
-                                <a href="https://www.linkedin.com/in/samira-kamilova-184158281/" target="_blank" rel="noopener noreferrer"><ImLinkedin size={40} className="bg-white hover:bg-sky-200 rounded-full p-2 cursor-pointer" /></a>
+                                <a href="https://www.linkedin.com/in/samira-kamilova-184158281/" target="_blank" rel="noopener noreferrer" aria-label="Linkedin link"><ImLinkedin size={40} className="bg-white hover:bg-sky-200 rounded-full p-2 cursor-pointer" /></a>
                             </div>
                             <div className="flex flex-row gap-2 items-center">
                                 <p className="text-white font-semibold">Mail</p>
-                                <a href="mailto:kmlvasmra@gmail.com"><BiLogoGmail size={40} className="bg-white hover:bg-green-200 rounded-full p-2 cursor-pointer" /></a>
+                                <a href="mailto:kmlvasmra@gmail.com"><BiLogoGmail size={40} aria-label="Gmail link" className="bg-white hover:bg-green-200 rounded-full p-2 cursor-pointer" /></a>
                             </div>
                         </div>}
                 </div>
