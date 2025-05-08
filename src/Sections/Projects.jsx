@@ -73,7 +73,7 @@ export default function Projects() {
                                     <h1 className='text-white font-semibold text-3xl max-sm:text-xl'>{project.name}</h1>
                                     <p className='text-gray-600 max-sm:text-xs'>{project.date}</p>
                                     <p className='text-gray-600 mt-5 max-sm:mt-3 max-sm:line-clamp-2'>{project.description}</p>
-                                    <a href={project.github} target='_blank' rel="noopener noreferrer"
+                                    <a href={project.github} target='_blank' rel="noopener noreferrer" aria-label={`${project.name}`}
                                         className='text-white cursor-pointer hover:text-gray-600 w-6 absolute right-0 mt-1'><FaLink size={16} /></a>
                                 </div>
                                 <div data-aos='zoom-in-left' className='max-sm:hidden rounded-xl w-1/3 max-sm:w-full h-48 hover:scale-105 transition-transform duration-300 hover:shadow-[0px_8px_8px_-8px_#e8e8e8]'>
